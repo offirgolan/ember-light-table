@@ -25,6 +25,7 @@ module.exports = {
   env: {
     browser: true
   },
+<<<<<<< HEAD
 
   rules: {
     'generator-star-spacing': ['error', { before: false, after: false }],
@@ -39,6 +40,9 @@ module.exports = {
     'ember/require-computed-property-dependencies': 'warn'
   },
 
+=======
+  rules: {},
+>>>>>>> 8a10e77... v3.16.1...v3.20.0
   overrides: [
     // node files
     {

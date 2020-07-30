@@ -39,6 +39,14 @@ module.exports = async function() {
         }
       },
       {
+        name: 'ember-lts-3.20',
+        npm: {
+          devDependencies: {
+            'ember-source': '~3.20.0'
+          }
+        }
+      },
+      {
         name: 'ember-release',
         npm: {
           devDependencies: {
@@ -60,16 +68,6 @@ module.exports = async function() {
           devDependencies: {
             'ember-source': await getChannelURL('canary')
           }
-        }
-      },
-      // The default `.travis.yml` runs this scenario via `npm test`,
-      // not via `ember try`. It's still included here so that running
-      // `ember try:each` manually or from a customized CI config will run it
-      // along with all the other scenarios.
-      {
-        name: 'ember-default',
-        npm: {
-          devDependencies: {}
         }
       },
       {
