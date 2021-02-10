@@ -449,6 +449,8 @@ export default Component.extend({
   // Noop for closure actions
   onRowClick() {},
   onRowDoubleClick() {},
+  onRowMouseEnter() {},
+  onRowMouseLeave() {},
   onScroll() {},
   firstVisibleChanged() {},
   lastVisibleChanged() {},
@@ -509,8 +511,28 @@ export default Component.extend({
      * @param  {Row}   row The row that was clicked
      * @param  {Event}   event   The click event
      */
-    onRowDoubleClick(/* row */) {
+    onRowDoubleClick(/* row, event */) {
       this.onRowDoubleClick(...arguments);
+    },
+
+    /**
+     * onRowMouseEnter action.
+     * @event onRowMouseEnter
+     * @param  {Row}   row The row that was entered
+     * @param  {Event}   event   The mouse event
+     */
+    onRowMouseEnter(/* row, event */) {
+      this.onRowMouseEnter(...arguments);
+    },
+
+    /**
+     * onRowMouseLeave action.
+     * @event onRowMouseLeave
+     * @param  {Row}   row The row that was left
+     * @param  {Event}   event   The mouse event
+     */
+    onRowMouseLeave(/* row, event */) {
+      this.onRowMouseLeave(...arguments);
     },
 
     /**

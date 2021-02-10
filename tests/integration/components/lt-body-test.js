@@ -158,18 +158,24 @@ module('Integration | Component | lt body', function(hooks) {
   });
 
   test('row actions', async function(assert) {
-    assert.expect(2);
+    assert.expect(4);
 
     this.set('table', Table.create({ columns: Columns, rows: this.server.createList('user', 1) }));
     this.actions.onRowClick = (row) => assert.ok(row);
     this.actions.onRowDoubleClick = (row) => assert.ok(row);
+    this.actions.onRowMouseEnter = (row) => assert.ok(row);
+    this.actions.onRowMouseLeave = (row) => assert.ok(row);
     await render(
-      hbs `{{lt-body table=table sharedOptions=sharedOptions onRowClick=(action 'onRowClick') onRowDoubleClick=(action 'onRowDoubleClick') tableId="light-table"}}`
+      hbs `{{lt-body table=table sharedOptions=sharedOptions onRowClick=(action 'onRowClick') onRowDoubleClick=(action 'onRowDoubleClick') onRowMouseEnter=(action 'onRowMouseEnter') onRowMouseLeave=(action 'onRowMouseLeave') tableId="light-table"}}`
     );
 
     let row = find('tr');
     await click(row);
     await triggerEvent(row, 'dblclick');
+    await triggerEvent(row, 'mouseover');
+    await triggerEvent(row, 'mouseenter');
+    await triggerEvent(row, 'mouseleave');
+    await triggerEvent(row, 'mouseout');
   });
 
   test('hidden rows', async function(assert) {
